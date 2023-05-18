@@ -46,8 +46,11 @@ li
     list-style-type: none
 
 .header-logo
-    text-align: center
-    margin: 14px 0 5px 0
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 63px
+    margin: 15px 0 5px 0
     box-shadow: $box-shadow-small
     position: relative
     z-index: 1
@@ -173,14 +176,13 @@ li
         border-radius: 15px 15px 0 0
     & .nouveau
         width: 80px
-        height: 29px
+        height: 30px
         box-shadow: $box-shadow-small
         border-radius: 2px
         font-weight: 500
+        line-height: 30px
         display: inline-block
-        margin: auto
         text-align: center
-        vertical-align: middle
         background-color: $third-color
         color: $fourth-color
         position: absolute
@@ -199,6 +201,9 @@ li
             animation-name: active-coeur
             animation-duration: 400ms
             background: linear-gradient($main-color, $second-color)
+            background-clip: text
+            -webkit-background-clip: text
+            color: transparent
 
 .restaurants-card:nth-child(2) img
     object-position: left 60.5%
@@ -214,7 +219,9 @@ footer
     color: white
 
 .footer-logo
-    width: 137.58px
+    font-family: $logo-menu-font
+    font-style: italic
+    font-size: 18px
 
 .footer-links
     display: flex
@@ -227,7 +234,20 @@ footer
         width: 24px
         margin-top: 9px
 
-/* à corriger: */
-/* dans .restaurant-card .nouveau : aligner verticlement le texte */
-/* dans .restaurant-card 1 faire que le background de l'animation de déborde pas du coeur */
-/* dans le footer: corriger la couleur du logo */
+@media all and (min-width: 1050px)
+    .restaurants ul
+        justify-content: space-between
+    .restaurants-card
+        width: 490px
+
+    
+/* j'en suis à: ligne 206: le fond du coeur */
+/* repositionner les photos en @media 1040+  */
+
+
+
+
+/* à corriger:*/
+/*    dans .restaurant-card 1 faire que le background de l'animation de déborde pas du coeur */
+
+/* modifications à noter au prochain commit: */
