@@ -42,8 +42,11 @@ li {
 }
 
 .header-logo {
-  text-align: center;
-  margin: 14px 0 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  margin: 15px 0 5px 0;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 1;
@@ -191,14 +194,13 @@ li {
 }
 .restaurants-card .nouveau {
   width: 80px;
-  height: 29px;
+  height: 30px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   font-weight: 500;
+  line-height: 30px;
   display: inline-block;
-  margin: auto;
   text-align: center;
-  vertical-align: middle;
   background-color: #99E2D0;
   color: #008766;
   position: absolute;
@@ -221,6 +223,9 @@ li {
   animation-name: active-coeur;
   animation-duration: 400ms;
   background: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .restaurants-card:nth-child(2) img {
@@ -240,7 +245,9 @@ footer {
 }
 
 .footer-logo {
-  width: 137.58px;
+  font-family: "Shrikhand", cursive;
+  font-style: italic;
+  font-size: 18px;
 }
 
 .footer-links {
@@ -257,7 +264,21 @@ footer {
   margin-top: 9px;
 }
 
-/* à corriger: */
-/* dans .restaurant-card .nouveau : aligner verticlement le texte */
-/* dans .restaurant-card 1 faire que le background de l'animation de déborde pas du coeur */
-/* dans le footer: corriger la couleur du logo *//*# sourceMappingURL=style.css.map */
+@media all and (min-width: 1050px) {
+  .restaurants ul {
+    justify-content: space-between;
+  }
+  .restaurants-card {
+    width: 490px;
+  }
+}
+/* j'en suis à: ligne 206: le fond du coeur */
+/* repositionner les photos en @media 1040+  */
+/* à corriger:*/
+/*    dans .restaurant-card 1 faire que le background de l'animation de déborde pas du coeur */
+/* modifications à noter au prochain commit: */
+/*    correction de la hauteur du header et ajustement du logo */
+/*    dans .restaurants-cards .nouveau ajustement de la hauteur à 30px et ajout de line-height pour centrer le texte. suppression des propriétés inhutiles */
+/*    remplacement de l'image dans le footer par un paragraphe et ajustements du css qui vont avec */
+/*    modification de la largeur minimale pour prise en charde des @media: passée de 1040px à 1050px */
+/*    ajout des media queries de la page d'accueil pour la version desktop *//*# sourceMappingURL=style.css.map */
