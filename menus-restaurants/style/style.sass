@@ -21,6 +21,12 @@ $box-shadow-large: 0px 4px 15px rgba(0, 0, 0, 0.15)
         transform: scale(1.1)
         opacity: 1
 
+@keyframes apparition
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
 *
     box-sizing: border-box
 
@@ -31,6 +37,7 @@ html
 body
     margin: 0
     font-family: $text-font
+    width: 100%
     max-width: 1440px
     position: relative
 
@@ -134,7 +141,16 @@ article
     width: 100%
     max-width: 635px
     margin-bottom: 28px
-
+    animation-name: apparition
+    animation-duration: 2000ms
+    animation-fill-mode: both
+    &:nth-of-type(1)
+        animation-delay: 0ms
+    &:nth-of-type(2)
+        animation-delay: 500ms
+    &:nth-of-type(3)
+        animation-delay: 1000ms
+               
 li
     display: flex
     flex-wrap: nowrap
@@ -160,24 +176,22 @@ li
         color: white
         padding: 35px 0
         background-color: $third-color
+        transition: 500ms ease-in-out
     &:hover
         i
-            transition-duration: 500ms
             width: 60px
             padding: 35px 18px
 
 .menu-valid
-    display: flex
-    flex-direction: column
-    justify-content: space-evenly
     flex-shrink: 1
     width: 100%
     margin: 12px 0 12px 15px
+    overflow: hidden
     & p
-        flex-shrink: 0
         height: 19px
         overflow: hidden
         text-overflow: ellipsis
+        white-space: nowrap
 
 .deroulant
     display: flex
@@ -253,19 +267,10 @@ footer
         height: 19px
 
 /* travail à faire: passer le code au validateur w3c puis commiter le trajail déjà fait.
-     
-     dans le css des menus: faire en sorte que l'animation régresse après le survol de la souris (au lieux de juste disparaitre)
-                          les ... n'apparaissent pas quand tu contenus est coupé (au vurvol de la souris)
-     analyser l'animation coeur pour savoir pourquoi, lors de la première activation, elle ne se fait pas correctement
-     faire le loader au chargement de la page:
-        Page d’accueil
-            ● Quand l’application aura plus de menus, un “loader” sera nécessaire. Sur cette maquette, nous souhaitons en avoir un aperçu.
-                Il devra apparaître pendant 1 à 3 secondes quand on arrive sur la page d'accueil, couvrir l'intégralité de l'écran, et
-                utiliser les animations CSS (pas de librairie). Le design de ce loader n’est pas défini, toute proposition est donc la bienvenue
-                tant qu’elle est cohérente avec la charte graphique du site.
-        Pages de menu
-            ● À l’arrivée sur la page, les plats devront apparaître progressivement avec un léger
-            décalage dans le temps. Ils pourront apparaître soit un par un, soit par groupe
-            “Entrée”, “Plat” et “Dessert”
+                        
+    analyser l'animation coeur pour savoir pourquoi, lors de la première activation, elle ne se fait pas correctement
+
+
+
 
 

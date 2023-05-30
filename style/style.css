@@ -12,12 +12,22 @@
   }
 }
 /* 1.05 au lieux de 1 sert à déborder légèrement du du cadre du coeur vite pour le masquer entièrement. une autre possibilité aurait été de transformer la couleur de coeur inactif en même temps que la transformation de coeur-actif, mais celà aurait engendré plus de calculs pour le navigateur */
+@keyframes apparition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 html {
   display: flex;
   justify-content: center;
 }
 
 body {
+  animation-name: apparition;
+  animation-duration: 2000ms;
   max-width: 1440px;
   margin: 0;
   box-sizing: border-box;
