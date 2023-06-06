@@ -130,11 +130,11 @@ li {
   font-size: 16px;
   color: white;
   text-decoration: none;
+  transition-duration: 500ms;
 }
 .explore:hover {
   opacity: 90%;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  transition-duration: 500ms;
 }
 
 .fonctionnement {
