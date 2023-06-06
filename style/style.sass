@@ -35,7 +35,7 @@ html
 body
     animation-name: apparition
     animation-duration: 2000ms
-    max-width: 1440px
+    width: 100%
     margin:0
     box-sizing: border-box
     font-family: $text-font
@@ -128,7 +128,8 @@ li
         transition-duration: 500ms
 
 .fonctionnement
-    max-width: 1100px
+    width: 375px
+    align-self: center
     margin: 50px 0 68px 0
     & h1
         margin-left: 20px
@@ -171,16 +172,16 @@ li
     width: 100%
     background-color: $light-grey
 
-#restaurants
-    max-width: 1100px
+.restaurants
+    width: clamp(375px, 490px, 1100px)
     padding-bottom: 50px
     background-color: $light-grey
     & h1
         padding: 54px 0 3px 20px
 
 .restaurants-card
-    Width: 340px
-    Height: 251px
+    width: clamp(340px, 100%, 490px)
+    height: 251px
     margin: 17px
     background: #FFFFFF
     border-radius: 15px
@@ -237,9 +238,15 @@ li
 
 footer
     display: flex
+    justify-content: center
+    background-color: $very-dark-grey
+
+.block-footer
+    display: flex
     flex-direction: column
     justify-content: space-between
     box-sizing: border-box
+    width: 490px
     height: 186px
     padding: 22px 25px
     background-color: $very-dark-grey
@@ -264,9 +271,19 @@ footer
         color: white
         text-decoration: none
 
-@media all and (min-width: 1050px)
-    #restaurants ul
-        justify-content: space-between
+@media all and (min-width: 1100px)
+    body
+        max-width: 1440px
+
+    .fonctionnement
+        width: 100%
+        max-width: 1100px
+
+    .restaurants
+        width: 100%
+        max-width: 1100px
+        & ul
+            justify-content: space-between
 
     .restaurants-card
         width: 490px
@@ -276,7 +293,8 @@ footer
     .restaurants-card:nth-child(2) img
         object-position: left 56.8%
 
-    footer
+    .block-footer
+        width: 100%
         height: 114px
         flex-direction: row
         justify-content: flex-end
