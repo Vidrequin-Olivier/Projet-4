@@ -188,12 +188,12 @@ li {
   background-color: #F7F7F7;
 }
 
-.restaurants {
+#restaurants {
   width: 490px;
   padding-bottom: 50px;
   background-color: #F7F7F7;
 }
-.restaurants h1 {
+#restaurants h1 {
   padding: 54px 0 3px 20px;
 }
 
@@ -317,11 +317,11 @@ footer {
     width: 100%;
     max-width: 1100px;
   }
-  .restaurants {
+  #restaurants {
     width: 100%;
     max-width: 1100px;
   }
-  .restaurants ul {
+  #restaurants ul {
     justify-content: space-between;
   }
   .restaurants-card {
