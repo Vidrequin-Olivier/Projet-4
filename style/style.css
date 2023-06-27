@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* animation de grossicement du coeur lors d'un clic */
 @keyframes active-coeur {
   0% {
     transform: scale(0);
@@ -12,6 +13,38 @@
   }
 }
 /* 1.05 au lieux de 1 sert à déborder légèrement du du cadre du coeur vite pour le masquer entièrement. une autre possibilité aurait été de transformer la couleur de coeur inactif en même temps que la transformation de coeur-actif, mais celà aurait engendré plus de calculs pour le navigateur */
+@keyframes loader {
+  99.99% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes progress-bar {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 20%;
+  }
+  45% {
+    width: 20%;
+  }
+  65% {
+    width: 80%;
+  }
+  80% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+  }
+}
 @keyframes apparition {
   0% {
     opacity: 0;
@@ -20,14 +53,127 @@
     opacity: 1;
   }
 }
+@keyframes apparition-point-1 {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  26% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes apparition-point-2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes apparition-point-3 {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  76% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 html {
   display: flex;
   justify-content: center;
 }
 
-body {
+.loader {
+  animation-name: loader;
+  animation-duration: 5000ms;
+  animation-fill-mode: both;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 20%;
+  background-color: white;
+}
+
+.loader-text {
+  display: flex;
+  font-size: 25px;
+  padding: 20px;
+}
+.loader-text p:nth-of-type(2) {
+  animation-name: apparition-point-1;
+  animation-duration: 1500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 3;
+}
+.loader-text p:nth-of-type(3) {
+  animation-name: apparition-point-2;
+  animation-duration: 1500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 3;
+}
+.loader-text p:nth-of-type(4) {
+  animation-name: apparition-point-3;
+  animation-duration: 1500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 3;
+}
+.loader-text i {
+  display: block;
+  animation-name: rotation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 5;
+  margin-left: 30px;
+}
+
+.loader-bar {
+  width: 90%;
+  max-width: 400px;
+  height: 30px;
+  border: 3px solid black;
+}
+
+.progress-bar {
+  animation-name: progress-bar;
+  animation-duration: 5000ms;
+  animation-fill-mode: both;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+
+.contenus-page {
   animation-name: apparition;
+  animation-delay: 5000ms;
   animation-duration: 2000ms;
+  animation-fill-mode: both;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -138,7 +284,8 @@ li {
 }
 
 .fonctionnement {
-  width: 375px;
+  width: 100%;
+  max-width: 375px;
   align-self: center;
   margin: 50px 0 68px 0;
 }
@@ -164,12 +311,18 @@ li {
   background-color: #9356DC;
 }
 
+.fonctionnement li {
+  width: 100%;
+  max-width: 322.49px;
+}
+
 .fonct-cont {
   align-items: center;
   position: relative;
   left: 9px;
   z-index: 0;
-  width: 322.49px;
+  width: 100%;
+  max-width: 322.49px;
   height: 72.38px;
   margin-right: 20px;
   background-color: #F7F7F7;
@@ -189,7 +342,8 @@ li {
 }
 
 #restaurants {
-  width: 490px;
+  width: 100%;
+  max-width: 490px;
   padding-bottom: 50px;
   background-color: #F7F7F7;
 }
@@ -198,7 +352,8 @@ li {
 }
 
 .restaurants-card {
-  width: clamp(340px, 100%, 490px);
+  width: 100%;
+  max-width: 490px;
   height: 251px;
   margin: 17px;
   background: #FFFFFF;
@@ -278,7 +433,8 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  width: 490px;
+  width: 100%;
+  max-width: 490px;
   height: 186px;
   padding: 22px 25px;
   background-color: #353535;
@@ -313,6 +469,9 @@ footer {
   body {
     max-width: 1440px;
   }
+  .loader {
+    padding-left: 20%;
+  }
   .fonctionnement {
     width: 100%;
     max-width: 1100px;
@@ -325,7 +484,8 @@ footer {
     justify-content: space-between;
   }
   .restaurants-card {
-    width: 490px;
+    width: 100%;
+    max-width: 490px;
   }
   .restaurants-card img {
     -o-object-position: 0 -105px;
@@ -335,8 +495,12 @@ footer {
     -o-object-position: left 56.8%;
        object-position: left 56.8%;
   }
+  footer {
+    justify-content: flex-end;
+  }
   .block-footer {
     width: 100%;
+    min-width: 1100px;
     height: 114px;
     flex-direction: row;
     justify-content: flex-end;
@@ -351,7 +515,14 @@ footer {
   .footer-links {
     order: 1;
     flex-direction: row;
-    width: 620px;
     height: 19px;
   }
+  .footer-element {
+    margin-right: 12px;
+  }
+  .footer-element:nth-of-type(2) {
+    margin-right: 50px;
+  }
+  /*  retirer le dossier zip sur github
+  *  ajouter plus de commentaires dans le code pour mieux retrouver les éléments importants et les expliquer */
 }/*# sourceMappingURL=style.css.map */
