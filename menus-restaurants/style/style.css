@@ -141,7 +141,7 @@ article {
   right: 10px;
   line-height: 1;
 }
-.nom-et-coeur .coeur-actif:active {
+.nom-et-coeur .coeur-actif:hover {
   animation-name: active-coeur;
   animation-duration: 400ms;
   background: linear-gradient(#9356DC, #FF79DA);

@@ -402,7 +402,7 @@ li {
   bottom: 33px;
   right: 25px;
 }
-.restaurants-card .coeur-actif:active {
+.restaurants-card .coeur-actif:hover {
   animation-name: active-coeur;
   animation-duration: 400ms;
   background: linear-gradient(#9356DC, #FF79DA);
@@ -523,6 +523,4 @@ footer {
   .footer-element:nth-of-type(2) {
     margin-right: 50px;
   }
-  /*  retirer le dossier zip sur github
-  *  ajouter plus de commentaires dans le code pour mieux retrouver les éléments importants et les expliquer */
 }/*# sourceMappingURL=style.css.map */
